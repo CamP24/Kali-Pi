@@ -1,8 +1,8 @@
 Welcome to a beginning guide on creating your own portable Raspberry Pi penetration tester running the re4son kernel.
 
-    This will create a dropbox Raspberry Pi with Kali Linux OS ready to start learning and performing some white hat or black hat WiFi attacks.
+This will create a dropbox Raspberry Pi with Kali Linux OS ready to start learning and performing some white hat or black hat WiFi attacks.
 
-    What you will need:
+What you will need:
 
     1. Raspberry Pi $30 on Amazon
         Note: I went with the Raspberry Pi 3 B+ which comes with a broadcom Wifi chip on board. Keep in mind that this chip is limited in its capabilities and requires a patch to enable monitoring mode. Having a monitoring mode enabled WiFi adapter as well as one capable of packet injection will be required to start performing some simple WiFi attacks such as DOS or Man in the Middle/ Evil Twin attacks.
@@ -24,7 +24,7 @@ Welcome to a beginning guide on creating your own portable Raspberry Pi penetrat
     7. WiFi adapter - $30
         This is very important if you want to get started performing attacks and increase their effectiveness.
 
-        I went with the Long-Range ALPHA AWUS360NEH USB portable WiFi adapter that supports monitor mode and packet injection. There are others that are cheaper, medium-range but if you're going to buy a different adapter do your research about whether or not the chipset supports monitor mode and packet injection out of the box and some attacks like the Evil Twin/Man in the Middle attack I will discuss later require around 30dbs of transmit power.
+        I went with the Long-Range ALPHA AWUS360NEH USB portable WiFi adapter that supports monitor mode and packet injection. There are others that are cheaper, medium-range but if you're going to buy a different adapter do your research about whether or not the chipset supports monitor mode and packet injection out of the box and some attacks like the Evil Twin/Man in the Middle attack I will discuss later require around 30dbms of transmit power.
 
 This should be enough to get you going. You can add other peripherals but right now this keeps our build below $100 and is relatively simple.
 
@@ -41,29 +41,28 @@ Steps
 
   I will show both so the choice is yours. If you're not comfortable with the command line or you're not certain about what to enter and where when following the steps I highly recommend using the GUI application because there is no chance of writing over your main pc or laptop's boot disk that way.
 
-    A. Command Line:
-    -  Before* inserting the micro SD, open a terminal window and input
+A. Command Line:
+  -  Before* inserting the micro SD, open a terminal window and input
 
        `diskutil list`
 
       This will list all mounted drives and their partitions. You want to run this before inserting the micro SD because it will tell you exactly what you don't want to touch.
 
-    - Now insert your micro SD card/adapter into your computer and re-run
+  - Now insert your micro SD card/adapter into your computer and re-run
 
-        `diskutil list`
+       `diskutil list`
 
-        or you can also use:
+    or you can also use:
 
         `df -h`
 
-        Make note of the change. For example your terminal will display something like:
+  Make note of the change. For example your terminal will display something like:
 
-        `/dev/disk6 (disk image):
+      `/dev/disk6 (disk image):
    #:                       TYPE NAME                    SIZE       IDENTIFIER
-   0:                        FAT_32                      +31.6 MB    disk5
-   1:                  Apple_HFS FAT_32                   31.5 MB    disk5s1`
+   0:                        FAT_32                      +31.6 MB    disk5 1:                  Apple_HFS FAT_32                   31.5 MB    disk5s1`
 
-        You want to make note of the `/dev/diskX` because this is where you'll be writing your Kali Linux image to and performing some commands on to prepare your Raspberry Pi.
+  You want to make note of the `/dev/diskX` because this is where you'll be writing your Kali Linux image to and performing some commands on to prepare your Raspberry Pi.
 
       - After you have the correct attached disk you're going to format and over write run:
 
@@ -92,19 +91,19 @@ Steps
 
       I will go through the GUI application process.
 
-      B. GUI format and install
+B. GUI format and install
 
-        1. Download an [SD card formatter](https://www.sdcard.org/downloads/formatter_4/) <- I recommend this one which is available for Mac and Windows.
+  1. Download an [SD card formatter](https://www.sdcard.org/downloads/formatter_4/) <- I recommend this one which is available for Mac and Windows.
 
-        2. Install and run application
+  2. Install and run application
 
-        3. Select your micro SD card from the drop down window. If it's the only micro SD you have connected it will only show the correct micro SD.
+  3. Select your micro SD card from the drop down window. If it's the only micro SD you have connected it will only show the correct micro SD.
 
-        4. Select Overwrite or Quick Format then click "Format". This may take a few seconds.
+  4. Select Overwrite or Quick Format then click "Format". This may take a few seconds.
 
-        5. Now you are ready to flash the micro SD card but and there's a great program to that for you called "BalenaEtcher". Go [here](https://www.balena.io/etcher/) and download the applicable software for your OS, it supports Mac, Windows and Linux.
+  5. Now you are ready to flash the micro SD card but and there's a great program to that for you called "BalenaEtcher". Go [here](https://www.balena.io/etcher/) and download the applicable software for your OS, it supports Mac, Windows and Linux.
 
-        6. Now install and run BalenaEtcher. You will see:
+  6. Now install and run BalenaEtcher. You will see:
       <img src="img/balena.jpg"/>
 
             1. Select the correct image
@@ -127,24 +126,30 @@ Steps
 
 Key* - To get your Kali Pi working through SSH is being able to bypass the initial login prompt without connecting the keyboard and mouse the 1st time you boot up your Raspberry Pi. This will show you all the necessary steps.
 
-    "toor" password is very secure so lets change this.
+  "toor" password is very secure so lets change this.
 
-      1. SSH into your Raspberry Pi
-        Run in terminal:
-          `ssh -X root@[IP address]`
+1. SSH into your Raspberry Pi
+  Run in terminal:
 
-        `-X` or `-Y` will tell your computer to allow for X11 forwarding so you can see Kali Linux GUI in a window.
+    `ssh -X root@[IP address]`
 
-        The SSH session will ask for a password, enter:
-        `toor`
+    `-X`
+      or
+    `-Y` will tell your computer to allow for X11 forwarding so you can see Kali Linux GUI in a window.
 
-        Now you're ready to change that password.
-          Run in terminal:
-          `passwd root`
-          This will ask you to enter a new password. Enter it twice, letters will not show by default.
+    The SSH session will ask for a password, enter:
 
-        Now update your OS:
-            Run:
+    `toor`
+
+    Now you're ready to change that password.
+
+      Run in terminal:
+      `passwd root`
+      This will ask you to enter a new password. Enter it twice, letters will not show by default.
+
+      Now update your OS:
+
+      Run:
             `apt-get update`
             `apt-get upgrade`
             `apt-get dist-upgrade`
@@ -157,62 +162,79 @@ Key* - To get your Kali Pi working through SSH is being able to bypass the initi
         - `update-rc.d -f ssh remove`
         - `update-rc.d -f ssh defaults`
 
-         Since the default keys are easy to guess and represent a vulnerability to Man-in-the-middle-attacks. We want to generate new ones.
-          Run:
+      Since the default keys are easy to guess and represent a vulnerability to Man-in-the-middle-attacks. We want to generate new ones.
+
+      Run:
           `cd /etc/ssh`
           `mkdir insecure_old`
           `mv ssh_host* insecure_old`
           `dpkg-reconfigure openssh-server`
 
-          This backs up he old SSH keys in a new folder called "insecure_old" and generates new ones
+      This backs up he old SSH keys in a new folder called "insecure_old" and generates new ones
 
-          Now you want to enable login through root:
-            Run:
-              `nano /etc/ssh/sshd_config`
-              This will open the SSH config file and allow you to change it.
+      Now you want to enable login through root:
 
-              Look for:
-              `PermitRootLogin`
-              and make sure it is unhashed so it reads:
-              `PermitRootLogin yes`
-              instead of
-              `PermitRootLogin without-password`
-              Save changes with : `control + X`
-              Then type: `y` and hit "Enter/Return"
+      Run:
 
-              Now restart the SSH service with:
-              `service ssh restart`
-              `update-rc.d -f ssh enable 2 3 4 5`
+       `nano /etc/ssh/sshd_config`
 
-              Check that SSH is working:
-              `service ssh status`
+      This will open the SSH config file and allow you to change it.
 
-              If it isn't run:
-              `service ssh start`
+      Look for:
 
-      2. Enable Autologin
-          Run:
-          `cd /usr/local/src/re4son-kernel_4*`
-          `./re4son-pi-tft-setup -a root`
+      `PermitRootLogin`
 
-          Type : `Y` to confirm and reboot
+      and make sure it is unhashed so it reads:
 
-      3. Enable Bluetooth and Scan for bluetooth devices
-          Run:
+      `PermitRootLogin yes`
+
+    instead of
+
+    `PermitRootLogin without-password`
+
+    Save changes with :
+
+    `control + X`
+
+      Then type: `y` and hit "Enter/Return"
+
+      Now restart the SSH service with:
+        `service ssh restart`
+        `update-rc.d -f ssh enable 2 3 4 5`
+
+      Check that SSH is working:
+        `service ssh status`
+
+      If it isn't run:
+        `service ssh start`
+
+  2. Enable Autologin
+
+  Run:
+
+       `cd /usr/local/src/re4son-kernel_4*`
+       `./re4son-pi-tft-setup -a root`
+
+      Type : `Y` to confirm and reboot
+
+  3. Enable Bluetooth and Scan for bluetooth devices
+
+      Run:
             `bluetooth ctl`
 
-          Turn on bluetooth agent by running:
+      Turn on bluetooth agent by running:
             `agent on`
 
-          Next Run:
+      Next Run:
             `default agent`
 
-          Now turn on scan:
-            Run:
+      Now turn on scan:
+
+        Run:
               `scan on`
 
-          This will tell your Kali Pi to scan for bluetooth devices and show their MAC addresses.
+      This will tell your Kali Pi to scan for bluetooth devices and show their MAC addresses.
 
-          To pair with a bluetooth device run:
+      To pair with a bluetooth device run:
             `pair [MAC address]`
-          This may not work for many bluetooth devices but it's good to know as you learn more you can explore bluetooth hacking with your Raspberry Pi.
+      This may not work for many bluetooth devices but it's good to know as you learn more you can explore bluetooth hacking with your Raspberry Pi.
