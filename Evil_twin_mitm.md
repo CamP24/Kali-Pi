@@ -88,3 +88,17 @@ This will disconnect all clients from the network
 
         This completes the set up for the attack. You can see my phone connecting to the "Evil twin"
 <img src="/img/phone.jpg"/>
+<br>
+<br>
+
+<br>
+<br>
+
+
+You can always return to my Github and check out new tutorials. I will be working on more during the winter break and recommend checking out the following "Black Hat Python" guide if you know some python and want to get started using it for hacking or pentesting on the Kali-Pi we just built.
+
+<img src="img/python.jpg"/>
+
+References
+<br>
+Chaudhary, Shashwat. “Evil Twin Tutorial.” Kali Linux Hacking Tutorials, 14 July 2014, [www.kalitutorials.net/2014/07/evil-twin-tutorial.html](www.kalitutorials.net/2014/07/evil-twin-tutorial.html).
