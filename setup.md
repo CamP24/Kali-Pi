@@ -243,4 +243,4 @@ References
 <br>
 “Kali Linux – Raspberry Pi Set Up.” Kali Linux, [docs.kali.org/kali-on-arm/install-kali-linux-arm-raspberry-pi](docs.kali.org/kali-on-arm/install-kali-linux-arm-raspberry-pi).
 
- “Re4son Kernel Set Up.”[Re4son, whitedome.com.au/re4son/kali-pi](Re4son, whitedome.com.au/re4son/kali-pi/).
+ “Re4son Kernel Set Up.”[Re4son, whitedome.com.au/re4son/kali-pi] (Re4son, whitedome.com.au/re4son/kali-pi/).
