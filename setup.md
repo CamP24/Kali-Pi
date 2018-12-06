@@ -105,7 +105,7 @@ Steps
         5. Now you are ready to flash the micro SD card but and there's a great program to that for you called "BalenaEtcher". Go [here](https://www.balena.io/etcher/) and download the applicable software for your OS, it supports Mac, Windows and Linux.
 
         6. Now install and run BalenaEtcher. You will see:
-        <img src="img/balena.jpg"/>
+      <img src="img/balena.jpg"/>
 
             1. Select the correct image
             2. Select the Micro SD card
