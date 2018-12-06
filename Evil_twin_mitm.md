@@ -25,13 +25,14 @@ Steps:
     Also make note of any alerts like:
       `Found 3 processes that could cause trouble.`
 
-      <img src="/img/airmonstart.jpg"/>
+<img src="/img/airmongstart.jpg"/>
 
       "Kill" those processes, they may interfere they may not, you will need to restart the dhclient later:
         `airmon-ng check kill`
       Then re-run:
         `airmon-ng start wlan1`
-      <img src="/img/airmonstart2.jpg"/>
+  <img src="/img/airmonstart2.jpg"/>
+
   3. Capture packets from the air using the device you put in monitor mode.
       - Run:
         `airodump-ng wlan1mon`
