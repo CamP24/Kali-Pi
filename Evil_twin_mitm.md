@@ -14,7 +14,7 @@ Getting Started:
 Steps:
 
   1. To show available wireless interfaces run:
-      `iwconfig`
+    `iwconfig`
 
     <img src="img/iwconfig.jpg"/>
 
